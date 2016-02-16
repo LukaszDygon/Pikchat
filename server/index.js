@@ -28,7 +28,7 @@ app.use('/hello', function(req, res, next) {
 //server
 mongoose.connect('mongodb://localhost/pictureChat');
 mongoose.connection.once('open', function() {
-	
+
 	//load models and routes
 	app.models = require('./models/index.js');
 	var routes = require('./routes');
@@ -37,6 +37,6 @@ mongoose.connection.once('open', function() {
 	});
 
 	console.log('listening on port 27017...');
-	app.listen(27017);
+	app.listen(7777);
 })
 
