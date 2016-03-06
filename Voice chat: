@@ -1,0 +1,23 @@
+Voice chat:
+* Rooms for people to chat in
+* Private chat with people
+* Voice modulation
+* Volume and microphone control through website
+* Facebook, Google or own authentication
+* 404 page with gimp graphics
+* Make SVG logo and icons
+* Single page and simple
+
+Pikchat:
+Social network style website where people can only communicate in pictures and join picture theme groups
+* DB:
+	* Users
+	* Groups
+	* User's pictures
+* Tool to draw things
+* Use bootstrap to make work on mobile and desktop
+* AdRevenue - We are going to be rich
+* Group Admin tool ?
+* Report system?
+* Single page navigation
+* Google and FB (possibly others) Auth integration
