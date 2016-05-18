@@ -3,6 +3,11 @@ var mongoose = require('mongoose');
 var bodyPareser = require('body-parser');
 var methodOverride = require('method-override');
 var _ = require('lodash');
+var passport = require('passport');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 
 // create app
 var app = express();
@@ -20,6 +25,13 @@ app.use(function(req, res, next) {
 	next();
 });
 
+app.use(function (err, req, res, next) {
+	if (err.name === 'UnauthorizedError') {
+		res.status(401);
+		res.json({"message" : err.name + ": " + err.message});
+	}
+})
+
 app.use('/hello', function(req, res, next) {
 	res.send('Hello World!');
 	next();
@@ -31,12 +43,12 @@ mongoose.connection.once('open', function() {
 	
 	//load models and routes
 	app.models = require('./models/index.js');
-	var routes = require('./routes');
-	_.each(routes, function(controller, route) {
-		app.use(route, controller(app, route));
-	});
+	var routes = require('./routes.js');
+	require('./passport.js');
+	//authentication middleware
+	app.use(passport.initialize());
+	app.use(passport.session());
 
 	console.log('listening on port 27017...');
 	app.listen(27017);
-})
-
+});

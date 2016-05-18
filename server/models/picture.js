@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 //Create
-var MovieSchema = new mongoose.Schema({
+var pictureSchema = new mongoose.Schema({
 	title: {
 		type: String,
 		required: true
@@ -13,4 +13,5 @@ var MovieSchema = new mongoose.Schema({
 });
 
 //export model schema
-module.exports = MovieSchema;
+mongoose.model('Picture', pictureSchema);
+module.exports = pictureSchema;

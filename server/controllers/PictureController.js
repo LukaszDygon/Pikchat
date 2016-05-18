@@ -1,3 +1,6 @@
+var passport = require('passport');
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
 var restful = require('node-restful');
 
 module.exports = function(app, route) {

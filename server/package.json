@@ -1,19 +1,28 @@
 {
-  "name": "server",
+  "name": "pictureChat",
   "version": "1.0.0",
-  "description": "",
+  "description": "picture chatting app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Matt and Lukasz",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
-    "lodash": "^4.2.1",
+    "express-jwt": "^3.3.0",
+    "jsonwebtoken": "^5.7.0",
+    "kerberos": "^0.0.19",
+    "lodash": "^4.0.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.1",
-    "node-restful": "^0.2.5"
+    "morgan": "^1.7.0",
+    "node-restful": "^0.2.5",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.3.0"
   }
 }

@@ -46,6 +46,16 @@ angular
         templateUrl: 'views/picture-delete.html',
         controller: 'PictureDeleteCtrl'
       })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -60,4 +70,14 @@ angular
   })
   .factory('Picture', function(PictureRestangular) {
     return PictureRestangular.service('picture');
+  })
+  .factory('UserRestangular', function(Restangular) { 
+    return Restangular.withConfig(function(RestangularConfigurer) {
+      RestangularConfigurer.setRestangularFields({
+        id: '_id'
+      });
+    });
+  })
+  .factory('User', function(UserRestangular) {
+    return PictureRestangular.service('user');
   });
