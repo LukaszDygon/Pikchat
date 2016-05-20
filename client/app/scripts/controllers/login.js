@@ -20,10 +20,10 @@ angular.module('clientApp')
 	    authentication
 	    .login(vm.credentials)
 	    .error(function(err){
-	      alert("error " + err);
+	      //alert("error " + err);
 	    })
 	    .then(function(){
-	      $location.path('/');
+	      $location.path('/home');
 	    });
 	  };
   });

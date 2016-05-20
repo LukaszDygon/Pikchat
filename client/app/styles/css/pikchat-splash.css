@@ -1,0 +1,88 @@
+html, body {
+    height: 100%;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+body {
+    background: #b90504;
+    font-family: 'Roboto Light';
+    position: relative;
+}
+
+img {
+    margin: 0 auto;
+    margin-top: 5px;
+    display: block;
+    width: 70%;
+    max-width: 500px;
+}
+
+#button-container {
+    width: 100%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+#register-container {
+    width: 70%;
+    margin: 3% auto;
+    color: #f6f6f6;
+}
+
+button {
+    width: 130px;
+}
+
+button.btn-splash {
+    background: #b90504;
+    color: #f6f6f6;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: 2px solid #f6f6f6;
+    margin: 0 5px;
+}
+
+button.btn-splash:hover {
+    background: #b93231;
+    color: #fff;
+    border-color: #fff;
+}
+
+#login-box {
+    width: 350px;
+    margin: 0 auto;
+    z-index: 200;
+}
+
+.form-control {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+#overlay {
+    z-index: 100;
+    background: rgba(0,0,0,0.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.align-centre {
+    text-align: center;
+}

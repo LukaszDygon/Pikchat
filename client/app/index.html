@@ -1,101 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
 
     <title>Pikchat</title>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     
+    <link href="styles/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="styles/font/roboto-regular/font.css" type="text/css" rel="stylesheet" />
+    <link href="styles/font/roboto-light/font.css" type="text/css" rel="stylesheet" />
+    <link href="styles/css/pikchat.css" type="text/css" rel="stylesheet" />
+    <link href="styles/main.css" type="text/css" rel="stylesheet" />
+        
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="bower_components/jquery/dist/jquery.js"></script>
   </head>
   <body ng-app="clientApp">
-
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">Pikchat</a>
+    <div id="overlay-new-picture" class="overlay">
+    <div class="overlay-wrapper">
+        <div id="new-picture-box" class="panel panel-default">
+          <div class="drawingTool">
+            <div ng-repeat="c in ['#222222', '#ff2222', '#22ff22', '#2222ff', '#ffff22', '#22ffff', '#9911dd', '#339900', '#ff7766']" id="colorBar">
+                <a href="#SketchPad" data-color="{{c}}"><div class="color" style='background-color: {{c}}'></div></a>
+            </div>
+            <div ng-repeat="size in [2,4,8,15,30]" id="toolBar">
+              <a href="#SketchPad" data-size="{{size}}"><div class="tool">{{size}}</div></a>
+            </div>
+            <div id="downloadButton">
+              <a href="#SketchPad" data-clr="yes" id="downlaodButton" class="tool" ng-click="savePicture()" value="Save">&#8681;</a>
+            </div>
+            <div id="canvas">
+              <canvas id="SketchPad" ng-model="picture" width="600" height="400"></canvas>
+            
+              <script type="text/javascript">
+                $(function() {
+                  $('#SketchPad').sketch();
+                });
+              </script>
+            </div>
           </div>
-
-          <div class="collapse navbar-collapse" id="navbar-content">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-              <li><a ng-href="#/pictures">Pictures</a></li>
-              <li><a ng-href="#/register">Register</a></li>
-              <li><a ng-href="#/login">Login</a></li>
-            </ul>
-          </div>
+            <button type="button" class="pull-right btn btn-default">Send</button>
+            <div class="clearfix"></div>
         </div>
-      </div>
-
     </div>
-
-    <div id="content-wrap">
-      <div class="friends" id="friends" class="padded-content">
-        <div id="friends-toggle">
-          <a href="#" id="friends-toggle-click" title="Toggle Friends List"><span class="glyphicon glyphicon-user"></span></a>
+</div>
+<div id="overlay-view-picture" class="overlay">
+    <div class="overlay-wrapper">
+        <div id="view-picture-box" class="panel panel-default">
+            <img class="img-rounded" src="" />
         </div>
-        <!--
-        <div id="chat-rooms-list">
-          <p class="heading">Chat Rooms</p>
-          <ul>
-            <li>Drawing Competition</li>
-            <li>Work</li>
-          </ul>
-        </div>
-        -->
-        <div id="friends-list">
-          <p class="heading">Friends</p>
-          <a href="#/" class="friend-item-click">
-            <div class="friend-item">
-              <div class="friend-profile-picture">
-                <span class="glyphicon glyphicon-exclamation-sign"></span>
-                <img class="img-responsive img-circle" src="http://zblogged.com/wp-content/uploads/2015/11/5.png"/>
-              </div>
-              <div class="friend-name">
-                <p>
-                  Bob
-                  <span class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                  </span>
-                </p>
-              </div>
+    </div>
+</div>
+<div id="page-wrap">
+    <!-- Page Header -->
+    <div id="header">
+        <!-- Navigation -->
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-links">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="images/svg/logo-full.svg" />
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-links">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Profile</a></li>
+                    </ul>
+                </div>
             </div>
-          </a>
-          <a href="#/" class="friend-item-click">
-            <div class="friend-item friend-item-active">
-              <div class="friend-profile-picture">
-                <img class="img-responsive img-circle" src="http://static1.squarespace.com/static/505c959284ae57cc4c2b5878/t/525f0419e4b09f9731f515cb/1381958682689/heavenmcarthur-profile-square-300px.jpg"/>
-              </div>
-              <div class="friend-name">
-                <p>
-                  Harriet
-                  <span class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                  </span>
-                </p>
-              </div>
-            </div>
-          </a>
         </div>
-      </div>
+    </div>
       <div ng-view=""></div>
-    </div>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+  </div>
+    
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -113,7 +102,10 @@
     <script src="scripts/controllers/register.js"></script>
     <script src="scripts/services/authentication.js"></script>
     <script src="scripts/sketch.js" type="text/javascript"></script>
-    <script src="scripts/slideout.js" type="text/javascript"></script>
+    <!--<script src="scripts/slideout.js" type="text/javascript"></script>-->
+    
+    <!--<script src="scripts/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>-->
 
 </body>
 </html>

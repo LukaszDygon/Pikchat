@@ -50,7 +50,7 @@ angular.module('clientApp')
 	    };
 
 	    var register = function(user) {
-	    	alert("registering " + user.name);
+	    	//alert("registering " + user.name);
 
 	      	return $http({method: 'POST', url: serverURL + 'api/register', data: user, headers: { 'Content-Type': 'application/json; charset=UTF-8'}
         		})
@@ -60,7 +60,7 @@ angular.module('clientApp')
 	    };
 
 	    var login = function(user) {
-	    	alert(user);
+	    	//alert(user);
 	      	return $http({method: 'POST', url: serverURL + 'api/login', data: user, headers: { 'Content-Type': 'application/json; charset=UTF-8'}
         		})
 	      	.success(function(data) {

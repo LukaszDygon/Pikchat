@@ -1,4 +1,4 @@
-<div class="drawingTool">
+<!--<div class="drawingTool">
   <div ng-repeat="c in ['#222222', '#ff2222', '#22ff22', '#2222ff', '#ffff22', '#22ffff', '#9911dd', '#339900', '#ff7766']" id="colorBar">
       <a href="#SketchPad" data-color="{{c}}"><div class="color" style='background-color: {{c}}'></div></a>
   </div>
@@ -18,3 +18,84 @@
     </script>
   </div>
 </div>
+-->
+<!-- Friends List -->
+<!-- Main Page Content -->
+    <div id="content-wrap">
+                <div id="friends-list-container">
+                    <h4>Friends</h4>
+                    <ul class="pull-left col-xs-8">
+                        <li><a href="#"><img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" /></a></li>
+                        <li><a href="#"><img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" /></a></li>
+                        <li><a href="#"><img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" /></a></li>
+                        <li><a href="#"><img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" /></a></li>
+                    </ul>
+                    <div class="input-group col-xs-4 pull-right">
+                        <input type="text" class="form-control" placeholder="Search..."></input>
+                        <span class="input-group-btn">
+                            <button id="btn-search" type="button" class="btn btn-default pull-right">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- Chat -->
+                <div id="chat">
+                    <div id="chat-header">
+                        <img id="chat-arrow" src="images/png/chat-arrow.png" />
+                        <h2>Robert <span class="small">Offline</span></h2>
+                        <div id="chat-header-buttons" class="btn-group">
+                            <button id="btn-goto-chat" type="button" class="btn btn-default disabled">
+                                <span class="glyphicon glyphicon-comment"></span> 
+                            </button>
+                            <button id="btn-goto-profile" type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-user"></span> 
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div id="chat-body">
+                        <p><a href="#" id="chat-new-picture">New Picture</a></p>
+                        <div class="chat-item">
+                            <img class="img-circle left" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" />
+                            <a href="#">
+                                <img class="img-rounded pull-left" src="https://s.graphiq.com/sites/default/files/stories/t4/The_Best_Dog_Breeds_18262_10912.jpg" />
+                            </a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="chat-item">
+                            <img class="img-circle right" src="http://zblogged.com/wp-content/uploads/2015/11/5.png" />
+                            <a href="#">
+                                <img class="img-rounded pull-right" src="https://www.petfinder.com/wp-content/uploads/2012/11/140272627-grooming-needs-senior-cat-632x475.jpg" />
+                            </a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div id="friend-profile-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        Robert's Profile
+                                        <button id="btn-add-friend" type="button" class="btn btn-default pull-right">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Username</th>
+                                    <td>Robert</td>
+                                </tr>
+                                <tr>
+                                    <th>About Me</th>
+                                    <td>What the fuck did you just fucking say about me, you little bitch? I’ll have you know I graduated top of my class in the Navy Seals, and I’ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I’m the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You’re fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that’s just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little “clever” comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn’t, you didn’t, and now you’re paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You’re fucking dead, kiddo.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+                <script src="scripts/pikchat.js"></script>

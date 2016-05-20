@@ -12,13 +12,17 @@ angular
   .module('clientApp', [
     'ngRoute',
     'restangular'
-  ])
-  .config(function ($routeProvider, RestangularProvider) {
+  ]).config(function ($routeProvider, RestangularProvider) {
     
     RestangularProvider.setBaseUrl('http://localhost:27017');
 
     $routeProvider
-      .when('/', {
+      .when("/", {
+        templateUrl: 'views/splash.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/home', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
       })
@@ -49,7 +53,8 @@ angular
       .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        css: 'styles/css/pikchat-splash.css'
       })
       .when('/login', {
         templateUrl: 'views/login.html',

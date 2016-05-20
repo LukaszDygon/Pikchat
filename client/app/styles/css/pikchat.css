@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: 'Roboto';
+}
+
+#page-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 50px;
+    overflow-x: hidden;
+}
+
+#content-wrap {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    background: #f6f6f6;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+}
+
+.overlay {
+    position: absolute;
+    z-index:100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.overlay-wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#new-picture-box {
+    width: 95%;
+    min-width: 400px;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+#view-picture-box {
+    margin: 0 auto;
+    max-width: 750px;
+    min-width: 400px;
+    width: 90%;
+    padding: 5px;
+}
+
+#view-picture-box > img {
+    width: 100%;
+}
+
+/* Friends */
+#friends-list-container {
+    padding: 7px 15px;
+    background: #222;
+}
+
+#friends-list-container img {
+    width: 50px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+#friends-list-container > h4 {
+    font-family: 'Roboto Light';
+    margin-top: 0;
+    color: #f6f6f6;
+    font-size: 1.1em;
+}
+
+#friends-list-container > .input-group {
+    padding-top: 10px;
+}
+
+#friends-list-container > ul {
+    list-style: none;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#friends-list-container > ul > li {
+    display: inline-block;
+    padding: 2px;
+    position: relative;
+}
+
+/* Chat */
+#chat {
+    position: relative;
+    padding: 15px;
+    padding-top: 0;
+}
+
+#chat > #chat-header {
+    position: relative;
+    margin: 0 -15px;
+    padding: 0 15px;
+    padding-bottom: 5px;
+    background: url("../../images/png/shadow.png") repeat-x bottom left;
+}
+
+#chat > #chat-header > #chat-header-buttons {
+    margin-top: 20px;
+    float: right;
+}
+
+#chat > #chat-header > h2 {
+    float: left;
+}
+
+#chat > #chat-header > h2 > span.small {
+    font-size: 0.4em;
+}
+
+#chat > #chat-header > img#chat-arrow {
+    position: absolute;
+    left: 28px;
+    top: -12px;
+}
+
+#chat > #chat-body {
+    margin-top: 5px;
+}
+
+#chat > #chat-body > .chat-item {
+    position: relative;
+}
+
+#chat > #chat-body > .chat-item > a > img.img-rounded {
+    width: 70%;
+    max-width: 425px;
+    padding: 3px 0;
+}
+
+#chat > #chat-body > .chat-item > img.img-circle {
+    position: absolute; 
+    min-width: 25px;
+    max-width: 40px;
+    width: 5%;
+    top: -5px;
+    border: 1px solid #f6f6f6;
+}
+
+#chat > #chat-body > .chat-item > img.left {
+    left: -7px;
+}
+
+#chat > #chat-body > .chat-item > img.right {
+    right: -7px;
+}
+
+#chat > #chat-body > p {
+    text-align: center;
+}
+
+#chat > #chat-body > p > a {
+    font-size: 0.9em;
+    color: #222;
+    font-weight: bold;
+}
+
+/* Friend Profile. */
+#friend-profile-body {
+    display: none;
+}
+
+#friend-profile-body > table > tbody > tr > th {
+    width: 20%;
+}
+
+/* Navigation and header. */
+#header {
+    position: fixed;
+    z-index: 50;
+    width: 100%;
+    height: 50px;
+    margin-top: -50px;
+    background: #b90504;
+}
+
+#header > .navbar-default {
+    background: #b90504;
+    border: none;
+}
+
+#header > .navbar {
+    border-radius: 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+#header > .navbar-default > .container-fluid > .navbar-header > .navbar-brand > img {
+    height: 42px;
+    margin-top: -11px;
+}
+
+#header > .navbar-default > .container-fluid > .navbar-header > button:hover {
+    background: #990100;
+}
+
+#header > .navbar-default > .container-fluid > .navbar-header > button > span {
+    background: #f6f6f6;
+}
+
+#navbar-links > ul > li > a{
+    color: #f6f6f6;
+}
+
+#navbar-links > ul > li.active > a{
+    background: #990100;
+}

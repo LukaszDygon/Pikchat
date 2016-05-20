@@ -1,0 +1,135 @@
+<style>
+  #header {
+    display: none;
+  }
+  
+  html, body {
+    height: 100%;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+body {
+    background: #b90504;
+    font-family: 'Roboto Light';
+    position: relative;
+}
+
+img {
+    margin: 0 auto;
+    margin-top: 5px;
+    display: block;
+    width: 70%;
+    max-width: 500px;
+}
+
+#button-container {
+    width: 100%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+#register-container {
+    width: 70%;
+    margin: 3% auto;
+    color: #f6f6f6;
+}
+
+button {
+    width: 130px;
+}
+
+button.btn-splash {
+    background: #b90504;
+    color: #f6f6f6;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: 2px solid #f6f6f6;
+    margin: 0 5px;
+}
+
+button.btn-splash:hover {
+    background: #b93231;
+    color: #fff;
+    border-color: #fff;
+}
+
+#login-box {
+    width: 350px;
+    margin: 0 auto;
+    z-index: 200;
+}
+
+.form-control {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+#overlay {
+    z-index: 100;
+    background: rgba(0,0,0,0.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.align-centre {
+    text-align: center;
+}</style>
+<div id="overlay" class="main">
+            <div class="wrapper">
+                <div id="login-box" class="panel panel-default">
+                    <div class="panel-body">
+                        <!--<form role="form" method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username" name="username"></input>
+                                <input type="password" class="form-control" placeholder="Password" name="password"></input>
+                                <div class="align-centre">
+                                    <button type="submit" class="btn btn-default">Log In</button>
+                                </div>
+                            </div>
+                        </form>-->
+                        <form ng-submit="vm.onSubmit()">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Email" ng-model="vm.credentials.email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+                            </div>
+                            <div class="align-centre">
+                                <button type="submit" class="btn btn-default">Log in</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="wrapper">
+                <img src="images/svg/logo-full.svg" />
+                <div id="button-container">
+                    <button id="btn-get-started" type="button" class="btn btn-splash">
+                        Get Started
+                    </button>
+                    <button type="button" class="btn btn-splash" id="btn-login">
+                        Log In
+                    </button>
+                </div>
+            </div>
+        </div>
+<script src="scripts/pikchat-splash.js"></script>

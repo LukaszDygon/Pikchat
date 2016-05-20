@@ -1,4 +1,4 @@
-<form ng-submit="vm.onSubmit()">
+<!--<form ng-submit="vm.onSubmit()">
   <div class="form-group">
     <label for="name">Username</label>
     <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="vm.credentials.name">
@@ -12,4 +12,117 @@
     <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
   </div>
   <button type="submit" class="btn btn-default">Register!</button>
-</form>
+</form>-->
+<style>
+  #header {
+    display: none;
+  }
+  
+  html, body {
+    height: 100%;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+body {
+    background: #b90504;
+    font-family: 'Roboto Light';
+    position: relative;
+}
+
+img {
+    margin: 0 auto;
+    margin-top: 5px;
+    display: block;
+    width: 70%;
+    max-width: 500px;
+}
+
+#button-container {
+    width: 100%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+#register-container {
+    width: 70%;
+    margin: 3% auto;
+    color: #f6f6f6;
+}
+
+button {
+    width: 130px;
+}
+
+button.btn-splash {
+    background: #b90504;
+    color: #f6f6f6;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: 2px solid #f6f6f6;
+    margin: 0 5px;
+}
+
+button.btn-splash:hover {
+    background: #b93231;
+    color: #fff;
+    border-color: #fff;
+}
+
+#login-box {
+    width: 350px;
+    margin: 0 auto;
+    z-index: 200;
+}
+
+.form-control {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+#overlay {
+    z-index: 100;
+    background: rgba(0,0,0,0.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.align-centre {
+    text-align: center;
+}</style>
+<div class="main">
+  <div class="wrapper">
+      <img src="images/svg/logo-full.svg" />
+      <div id="register-container">
+          <h2>Getting Started</h2>
+          <p>What the fuck did you just fucking say about me, you little bitch? I’ll have you know I graduated top of my class in the Navy Seals, and I’ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I’m the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You’re fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that’s just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little “clever” comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn’t, you didn’t, and now you’re paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You’re fucking dead, kiddo.</p>
+          <form role="form" ng-submit="vm.onSubmit()">
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Username" id="name" ng-model="vm.credentials.name"></input>
+                  <input type="email" class="form-control" placeholder="Email" id="email" ng-model="vm.credentials.email"></input>
+                  <input type="password" class="form-control" placeholder="Password" id="password" ng-model="vm.credentials.password"></input>
+                  <div class="align-centre">
+                      <button type="submit" class="btn btn-default">Register</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+<script src="scripts/pikchat-splash.js"></script>
