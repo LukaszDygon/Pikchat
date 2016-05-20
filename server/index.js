@@ -16,12 +16,13 @@ var app = express();
 app.use(bodyPareser.urlencoded({extended: true}));
 app.use(bodyPareser.json());
 app.use(methodOverride('x-HTTP-Method-Override'));
-
+app.use(cookieParser());
 //public api access
 app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
 	res.header('Access-Control-Allow-Headers', 'Content-Type');
+	//res.header('Access-Control-Allow-Headers', '*');
 	next();
 });
 
@@ -44,8 +45,15 @@ mongoose.connection.once('open', function() {
 	//load models and routes
 	app.models = require('./models/index.js');
 	var routes = require('./routes.js');
-	require('./passport.js');
+
+	_.each(routes, function(controller, route) {
+		app.use(route, controller(app, route));
+	});
+	var routerAPI = require('./api/routes.js');
+	app.use('/api', routerAPI);
+	console.log("api instantiated in mongoDB");
 	//authentication middleware
+	require('./passport.js');
 	app.use(passport.initialize());
 	app.use(passport.session());
 

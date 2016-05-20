@@ -6,37 +6,15 @@
     <a href="#SketchPad" data-size="{{size}}"><div class="tool">{{size}}</div></a>
   </div>
   <div id="downloadButton">
-    <a href="#SketchPad" data-download='png' id="downlaodButton" class="tool">&#8681;</a>
+    <a href="#SketchPad" data-clr="yes" id="downlaodButton" class="tool" ng-click="savePicture()" value="Save">&#8681;</a>
   </div>
   <div id="canvas">
-    <canvas id="SketchPad" width="600" height="600"></canvas>
+    <canvas id="SketchPad" ng-model="picture" width="600" height="400"></canvas>
    
     <script type="text/javascript">
       $(function() {
         $('#SketchPad').sketch();
       });
     </script>
-  </div>
-</div>
-
-<div id="chat" class="padded-content">
-  <h3>Harriet <span class="small">Active now</span></h3>
-  <div class="chat-item chat-item-left">
-    <p class="chat-item-from">Harriet</p>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p>Some image here.</p>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  <div class="chat-item chat-item-right">
-    <p class="chat-item-from">You</p>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p>Some image here.</p>
-      </div>
-    </div>
-    <div class="clearfix"></div>
   </div>
 </div>

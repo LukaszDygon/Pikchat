@@ -60,7 +60,6 @@ angular
         redirectTo: '/'
       });
     })
-
   .factory('PictureRestangular', function(Restangular) { 
     return Restangular.withConfig(function(RestangularConfigurer) {
       RestangularConfigurer.setRestangularFields({

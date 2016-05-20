@@ -7,13 +7,9 @@
  * # authentication
  * Service in the clientApp.
  */
- (function () {
 angular.module('clientApp')
-  	.service('authentication', authentication);
-    // AngularJS will instantiate a singleton by calling "new" on this function
-	authentication.$inject = ['$http', '$window'];
-	function authentication ($http, $window) {
-
+  	.service('authentication', function ($http, $window, Restangular) {
+  		var serverURL = 'http://localhost:27017/'; 
 	    var saveToken = function (token) {
 	      $window.localStorage['session-token'] = token;
 	    };
@@ -54,13 +50,20 @@ angular.module('clientApp')
 	    };
 
 	    var register = function(user) {
-	      return $http.post('/api/register', user).success(function(data){
-	        saveToken(data.token);
-	      });
+	    	alert("registering " + user.name);
+
+	      	return $http({method: 'POST', url: serverURL + 'api/register', data: user, headers: { 'Content-Type': 'application/json; charset=UTF-8'}
+        		})
+	      	.success(function(data){
+	        	saveToken(data.token);
+	        });
 	    };
 
 	    var login = function(user) {
-	      return $http.post('/api/login', user).success(function(data) {
+	    	alert(user);
+	      	return $http({method: 'POST', url: serverURL + 'api/login', data: user, headers: { 'Content-Type': 'application/json; charset=UTF-8'}
+        		})
+	      	.success(function(data) {
 	        saveToken(data.token);
 	      });
 	    };
@@ -74,6 +77,6 @@ angular.module('clientApp')
 	      register : register,
 	      login : login
 	    };
-	  }
 
-    })();
+
+    });

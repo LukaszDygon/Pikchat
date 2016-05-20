@@ -19,13 +19,12 @@ angular.module('clientApp')
 
 	vm.onSubmit = function () {
 	  authentication
-	    .register(vm.credentials)
+	    .register(JSON.stringify(vm.credentials))
 	    .error(function(err){
-	      alert(err + vm.credentials.name + "  " + vm.credentials.email);
+	      alert("error " + err + vm.credentials.name + "  " + vm.credentials.email);
 	    })
 	    .then(function(){
-	    	alert(2);
-	      $location.path('profile');
+	      $location.path('/');
     	});
-	};
- });
+	}
+});

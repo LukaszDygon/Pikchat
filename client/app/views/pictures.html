@@ -1,25 +1,10 @@
 <a class="btn btn-primary" href="/#/create/picture"><span class="glyphicon glyphicon-plus"></span> Add Picture</a>
 <br>
-<table class="table table-striped">
-	<thead>
-		<th>Title</th>
-		<th>URL</th>
-		<th>Operations</th>
-	</thead>
-	<tbody>
-		<tr ng-repeat="picture in pictures">
-			<td><a ng-href="/#/picture/{{ picture._id }}">{{ picture.title }}</a></td>
-			<td>{{ picture.url }}</td>
-			<td>
-				<div class="button-group">
-					<a ng-href="/#/picture/{{ picture._id }}/edit" class="btn btn-default">
-						<span class="glyphicon glyphicon-edit"></span>
-					</a>
-					<a ng-href="/#/picture/{{ picture._id }}/delete" class="btn btn-danger">
-						<span class="glyphicon glyphicon-remove-circle"></span>
-					</a>
-				</div>
-			</td>
-		</tr>
-	</tbody>
-</table>
+
+<div id="imgview" ng-repeat="picture in pictures">
+	<img ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}"
+	style="width:128px; height:128px;">
+	<a ng-href="/#/picture/{{ picture._id }}/delete" class="btn btn-danger">
+		<span class="glyphicon glyphicon-remove-circle"></span>
+	</a>
+</div>

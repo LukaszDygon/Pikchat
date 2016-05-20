@@ -23,7 +23,10 @@ module.exports = function(app, route) {
 
 module.exports.register = function(req, res) {
   var user = new User();
-
+  console.log("registering");
+  console.log(req.body.name);
+  console.log(req.body.email);
+  console.log(req.body.password);
   user.name = req.body.name;
   user.email = req.body.email;
 
@@ -37,6 +40,7 @@ module.exports.register = function(req, res) {
       "token" : token
     });
   });
+  console.log("user ", user.name, " registered successfully")
 };
 
 module.exports.login = function(req, res) {

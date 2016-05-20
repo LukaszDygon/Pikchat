@@ -38,7 +38,7 @@ var __slice = Array.prototype.slice;
         toolLinks: true,
         defaultTool: 'marker',
         defaultColor: '#000000',
-        defaultSize: 5
+        defaultSize: 4
       }, opts);
       this.painting = false;
       this.color = this.options.defaultColor;
@@ -63,9 +63,17 @@ var __slice = Array.prototype.slice;
           if ($(this).attr('data-download')) {
             sketch.download($(this).attr('data-download'));
           }
+          if ($(this).attr('data-clr')) {
+            sketch.clr($(this).attr('data-clear'));
+          }
           return false;
         });
       }
+    }
+    Sketch.prototype.clr = function(all) {
+        this.actions = [];
+        this.action = [];
+      return this.redraw();
     }
     Sketch.prototype.download = function(format) {
       var mime;
