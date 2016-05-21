@@ -83,5 +83,5 @@ angular
     });
   })
   .factory('User', function(UserRestangular) {
-    return PictureRestangular.service('user');
+    return UserRestangular.service('user');
   });

@@ -1,3 +1,5 @@
+//@ sourceURL = scripts/pikchat.js
+
 $(function() {
     var btns = $("#chat-header-buttons button");
     var chat = $("#chat-body");
@@ -10,17 +12,13 @@ $(function() {
         e.preventDefault();
         $("#overlay-new-picture").fadeIn().css("display", "table");
     });
-    $(".chat-item a").click(function(e) {
+    $("#chat-body").on('click', '.chat-item a', function(e) {
         e.preventDefault();
         var src = $(this).children("img").attr("src");
         $("#view-picture-box > img").attr("src", src);
         $("#overlay-view-picture").fadeIn().css("display", "table");
     });
-    /*$("#friends-list-container > ul > li > a > img").hover(function() {
-        var name = "Robert";
-    }, function() {
-    });*/
-    $("#friends-list-container > ul > li > a").click(function(e) {
+    $("#friends-list-container > ul").on('click', 'li > a', function(e) {
         e.preventDefault();
         var pointer = $("#chat-arrow");
         var pos = $(this).offset().left + $(this).width() / 2;
@@ -51,7 +49,7 @@ $(function() {
             chat.fadeIn("fast");
         }
     });
-    $("#picture-list-container .picture-list-item img").click(function() {
+    $("#picture-list-container").on('click', '.picture-list-item img', function() {
         var src = $(this).attr("src");
         $("#view-picture-box > img").attr("src", src);
         $("#overlay-view-picture").fadeIn().css("display", "table");

@@ -22,34 +22,6 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
   </head>
   <body ng-app="clientApp">
-    <div id="overlay-new-picture" class="overlay">
-    <div class="overlay-wrapper">
-        <div id="new-picture-box" class="panel panel-default">
-          <div class="drawingTool">
-            <div ng-repeat="c in ['#222222', '#ff2222', '#22ff22', '#2222ff', '#ffff22', '#22ffff', '#9911dd', '#339900', '#ff7766']" id="colorBar">
-                <a href="#SketchPad" data-color="{{c}}"><div class="color" style='background-color: {{c}}'></div></a>
-            </div>
-            <div ng-repeat="size in [2,4,8,15,30]" id="toolBar">
-              <a href="#SketchPad" data-size="{{size}}"><div class="tool">{{size}}</div></a>
-            </div>
-            <div id="downloadButton">
-              <a href="#SketchPad" data-clr="yes" id="downlaodButton" class="tool" ng-click="savePicture()" value="Save">&#8681;</a>
-            </div>
-            <div id="canvas">
-              <canvas id="SketchPad" ng-model="picture" width="600" height="400"></canvas>
-            
-              <script type="text/javascript">
-                $(function() {
-                  $('#SketchPad').sketch();
-                });
-              </script>
-            </div>
-          </div>
-            <button type="button" class="pull-right btn btn-default">Send</button>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
 <div id="overlay-view-picture" class="overlay">
     <div class="overlay-wrapper">
         <div id="view-picture-box" class="panel panel-default">

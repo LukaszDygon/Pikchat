@@ -8,6 +8,9 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('PicturesCtrl', function ($scope, Picture) {
-  	$scope.pictures = Picture.getList().$object;
+  .controller('PicturesCtrl', function ($scope, Picture, authentication) {
+  	var currentUser = authentication.currentUser();
+  	Picture.getList({'sender': currentUser.email}).then(function(response) {
+  		$scope.pictures = response;
+  	});
   });

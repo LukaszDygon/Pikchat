@@ -21,17 +21,45 @@
 -->
 <!-- Friends List -->
 <!-- Main Page Content -->
+<div id="overlay-new-picture" class="overlay">
+    <div class="overlay-wrapper">
+        <div id="new-picture-box" class="panel panel-default">
+          <div class="drawingTool">
+            <div ng-repeat="c in ['#222222', '#ff2222', '#22ff22', '#2222ff', '#ffff22', '#22ffff', '#9911dd', '#339900', '#ff7766']" id="colorBar">
+                <a href="#SketchPad" data-color="{{c}}"><div class="color" style='background-color: {{c}}'></div></a>
+            </div>
+            <div ng-repeat="size in [2,4,8,15,30]" id="toolBar">
+              <a href="#SketchPad" data-size="{{size}}"><div class="tool">{{size}}</div></a>
+            </div>
+            <div id="downloadButton">
+              <a href="#SketchPad" data-clr="yes" id="downlaodButton" class="tool" ng-click="savePicture()" value="Save">&#8681;</a>
+            </div>
+            <div id="canvas">
+              <canvas id="SketchPad" ng-model="picture" width="600" height="400"></canvas>
+            
+              <script type="text/javascript">
+                $(function() {
+                  $('#SketchPad').sketch();
+                });
+              </script>
+            </div>
+          </div>
+            <button type="button" class="pull-right btn btn-default">Send</button>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
     <div id="content-wrap">
                 <div id="friends-list-container">
                     <h4>Friends</h4>
                     <ul class="pull-left col-xs-8">
-                        <li><a href="#"><img class="img-circle" src="images/png/defaultprofile.png" /></a></li>
-                        <li><a href="#"><img class="img-circle" src="images/png/defaultprofile.png" /></a></li>
-                        <li><a href="#"><img class="img-circle" src="images/png/defaultprofile.png" /></a></li>
-                        <li><a href="#"><img class="img-circle" src="images/png/defaultprofile.png" /></a></li>
+                        <li ng-repeat="user in users | filter: nameFilter">
+                            <a href="#" ng-click="getPictures(user)">
+                            <img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" /></a>
+                        </li>
                     </ul>
                     <div class="input-group col-xs-4 pull-right">
-                        <input type="text" class="form-control" placeholder="Search..."></input>
+                        <input type="text" class="form-control" ng-model="nameFilter" placeholder="Search..."></input>
                         <span class="input-group-btn">
                             <button id="btn-search" type="button" class="btn btn-default pull-right">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -44,7 +72,7 @@
                 <div id="chat">
                     <div id="chat-header">
                         <img id="chat-arrow" src="images/png/chat-arrow.png" />
-                        <h2>Robert <span class="small">Offline</span></h2>
+                        <h2> {{receiver.name}} <span class="small">Offline</span></h2>
                         <div id="chat-header-buttons" class="btn-group">
                             <button id="btn-goto-chat" type="button" class="btn btn-default disabled">
                                 <span class="glyphicon glyphicon-comment"></span> 
@@ -57,17 +85,11 @@
                     </div>
                     <div id="chat-body">
                         <p><a href="#" id="chat-new-picture">New Picture</a></p>
-                        <div class="chat-item">
-                            <img class="img-circle left" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" />
+                        
+                        <div class="chat-item" ng-repeat="picture in senderPictures.concat(receiverPictures) | orderBy : '_id' : true">
+                            <img ng-class="picture.receiver != currentUser.email ? 'img-circle right' : 'img-circle left'" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg">
                             <a href="#">
-                                <img class="img-rounded pull-left" src="https://s.graphiq.com/sites/default/files/stories/t4/The_Best_Dog_Breeds_18262_10912.jpg" />
-                            </a>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="chat-item">
-                            <img class="img-circle right" src="http://zblogged.com/wp-content/uploads/2015/11/5.png" />
-                            <a href="#">
-                                <img class="img-rounded pull-right" src="https://www.petfinder.com/wp-content/uploads/2012/11/140272627-grooming-needs-senior-cat-632x475.jpg" />
+                                <img ng-class="picture.receiver != currentUser.email ? 'img-rounded pull-right' : 'img-rounded pull-left'" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}">
                             </a>
                             <div class="clearfix"></div>
                         </div>
@@ -86,5 +108,5 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <script src="scripts/pikchat.js"></script>
+            </div>
+            <script src="scripts/pikchat.js"></script>
