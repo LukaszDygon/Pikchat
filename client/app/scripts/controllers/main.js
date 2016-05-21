@@ -40,5 +40,10 @@ angular.module('clientApp')
       $scope.getPictures($scope.receiver);
       });
     };
+    $scope.getReceiverPictures = function() {
+      Picture.getList({'sender': $scope.receiver.email}).then(function(response) {
+        $scope.pictures = response;
+      });
+    }
     $scope.getPictures($scope.receiver);
   });

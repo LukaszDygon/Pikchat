@@ -55,7 +55,7 @@
                     <ul class="pull-left col-xs-8">
                         <li ng-repeat="user in users | filter: nameFilter">
                             <a href="#" ng-click="getPictures(user)">
-                            <img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" /></a>
+                            <img class="img-circle" src="images/png/defaultprofile.png" /></a>
                         </li>
                     </ul>
                     <div class="input-group col-xs-4 pull-right">
@@ -77,7 +77,7 @@
                             <button id="btn-goto-chat" type="button" class="btn btn-default disabled">
                                 <span class="glyphicon glyphicon-comment"></span> 
                             </button>
-                            <button id="btn-goto-profile" type="button" class="btn btn-default">
+                            <button id="btn-goto-profile" ng-click="getReceiverPictures()" type="button" class="btn btn-default">
                                 <span class="glyphicon glyphicon-user"></span> 
                             </button>
                         </div>
@@ -87,7 +87,7 @@
                         <p><a href="#" id="chat-new-picture">New Picture</a></p>
                         
                         <div class="chat-item" ng-repeat="picture in senderPictures.concat(receiverPictures) | orderBy : '_id' : true">
-                            <img ng-class="picture.receiver != currentUser.email ? 'img-circle right' : 'img-circle left'" src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg">
+                            <img ng-class="picture.receiver != currentUser.email ? 'img-circle right' : 'img-circle left'" src="images/png/defaultprofile.png">
                             <a href="#">
                                 <img ng-class="picture.receiver != currentUser.email ? 'img-rounded pull-right' : 'img-rounded pull-left'" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}">
                             </a>
@@ -95,13 +95,12 @@
                         </div>
                     </div>
                     <div id="friend-profile-body">
-                        <strong>Robert's Sent Images</strong>
+                        <strong>{{receiver.name}}'s Sent Images</strong>
                         <div id="picture-list-container" class="container">
                             <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="picture in pictures">
                                 <div class="picture-list-item panel panel-default">
                                     <div class="panel-body">
                                         <img class="img-responsive img-rounded" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}" />
-                                        <a ng-href="/#/picture/{{ picture._id }}/delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
                                     </div>
                                 </div>
                             </div>

@@ -65,6 +65,13 @@ angular
         redirectTo: '/'
       });
     })
+  .run(function($rootScope, $location, authentication) {
+    $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
+      if ($location.path() != '/' && !authentication.isLoggedIn()) {
+        $location.path('/');
+      }
+    });
+  })
   .factory('PictureRestangular', function(Restangular) { 
     return Restangular.withConfig(function(RestangularConfigurer) {
       RestangularConfigurer.setRestangularFields({

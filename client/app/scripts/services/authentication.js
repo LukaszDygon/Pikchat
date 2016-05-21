@@ -24,12 +24,14 @@ angular.module('clientApp')
 
 	    var isLoggedIn = function () {
 	      var token = getToken();
-	      var payload;
+	      var payload = {};
 
 	      if(token) {
 	        payload = token.split('.')[1];
 	        payload = $window.atob(payload);
 	        payload = JSON.parse(payload);
+	      } else {
+	      	payload = Date.now();
 	      }
 
 	      if (payload.exp > Date.now() / 1000) { return true; }
