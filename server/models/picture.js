@@ -4,7 +4,16 @@ var mongoose = require('mongoose');
 var pictureSchema = new mongoose.Schema({
 	img: {
 		type: String,
-		required: true}
+		required: true
+	},
+	sender: {
+		type: String,
+		requred: false
+	},
+	receiver: {
+		type: String,
+		required: false
+	}
 });
 
 //export model schema
