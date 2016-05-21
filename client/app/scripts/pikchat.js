@@ -16,10 +16,10 @@ $(function() {
         $("#view-picture-box > img").attr("src", src);
         $("#overlay-view-picture").fadeIn().css("display", "table");
     });
-    $("#friends-list-container > ul > li > a > img").hover(function() {
+    /*$("#friends-list-container > ul > li > a > img").hover(function() {
         var name = "Robert";
     }, function() {
-    });
+    });*/
     $("#friends-list-container > ul > li > a").click(function(e) {
         e.preventDefault();
         var pointer = $("#chat-arrow");
