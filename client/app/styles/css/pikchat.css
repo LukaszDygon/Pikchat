@@ -227,6 +227,33 @@ body {
     color: #f6f6f6;
 }
 
-#navbar-links > ul > li.active > a{
+#navbar-links > ul > li > a:hover {
     background: #990100;
+}
+
+/* Picture List */
+#picture-list-container, #profile-information {
+    max-width: 800px;
+}
+
+#picture-list-container > h2, #profile-information > h2 {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+#picture-list-container .picture-list-item a {
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+    font-size: .75em;
+}
+
+#picture-list-container .picture-list-item .panel-body {
+    padding: 5px;
+    position: relative;
+}
+
+#picture-list-container .picture-list-item img {
+    cursor: pointer;
 }

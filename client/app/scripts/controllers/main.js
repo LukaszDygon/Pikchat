@@ -23,4 +23,5 @@ angular.module('clientApp')
 			ctx.beginPath();
   		});
   	};
+	$scope.pictures = Picture.getList().$object;
   });

@@ -51,4 +51,9 @@ $(function() {
             chat.fadeIn("fast");
         }
     });
+    $("#picture-list-container .picture-list-item img").click(function() {
+        var src = $(this).attr("src");
+        $("#view-picture-box > img").attr("src", src);
+        $("#overlay-view-picture").fadeIn().css("display", "table");
+    });
 });

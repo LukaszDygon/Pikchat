@@ -1,4 +1,4 @@
-<a class="btn btn-primary" href="/#/create/picture"><span class="glyphicon glyphicon-plus"></span> Add Picture</a>
+<!--<a class="btn btn-primary" href="/#/create/picture"><span class="glyphicon glyphicon-plus"></span> Add Picture</a>
 <br>
 
 <div id="imgview" ng-repeat="picture in pictures">
@@ -7,4 +7,21 @@
 	<a ng-href="/#/picture/{{ picture._id }}/delete" class="btn btn-danger">
 		<span class="glyphicon glyphicon-remove-circle"></span>
 	</a>
+</div>-->
+
+<div id="content-wrap">
+	<div id="profile-information" class="container">
+		<h2>Username's Sent Images</h2>
+	</div>
+	<div id="picture-list-container" class="container">
+		<div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="picture in pictures">
+			<div class="picture-list-item panel panel-default">
+				<div class="panel-body">
+					<img class="img-responsive img-rounded" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}" />
+					<a ng-href="/#/picture/{{ picture._id }}/delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<script src="scripts/pikchat.js"></script>
