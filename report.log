@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.22)  22 MAY 2016 13:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.22)  22 MAY 2016 14:03
 entering extended mode
 **./report.tex
 (report.tex
@@ -404,8 +404,8 @@ Missing character: There is no – in font cmr12!
  [3]
 Missing character: There is no ” in font cmr12!
 Missing character: There is no ” in font cmr12!
-Missing character: There is no ” in font cmr12!
  [4]
+Missing character: There is no ” in font cmr12!
 Missing character: There is no ” in font cmr12!
 Missing character: There is no ’ in font cmr12!
  [5]
@@ -469,14 +469,14 @@ Here is how much of TeX's memory you used:
  12648 multiletter control sequences out of 15000+200000
  8056 words of font info for 29 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 42i,8n,40p,1071b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,8n,40p,1052b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmtt12.pfb>
-Output written on report.pdf (9 pages, 190346 bytes).
+Output written on report.pdf (9 pages, 190496 bytes).
 PDF statistics:
  160 PDF objects out of 1000 (max. 8388607)
  31 named destinations out of 1000 (max. 500000)
