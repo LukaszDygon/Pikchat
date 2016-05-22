@@ -20,14 +20,20 @@ Pikchat is an online messenger in which users communicate solely using pictures 
 \subsection{Running the Project}
 In order to run the project, there are few things which are required to be set up on the server:
 \begin{itemize}
+\vspace{-.3cm}
 \item MongoDB listening on port 27017.
+\vspace{-.3cm}
 \item Node.js, and 
+\vspace{-.3cm}
 \item Http-Server (command line http server available from npm) or possibly other HTTP server tool for the front end.
 \end{itemize}
 To run everything it should be sufficient to execute the following from the /server folder, in the following order:
 \begin{enumerate}
+\vspace{-.3cm}
 \item \texttt{mongod}
+\vspace{-.3cm}
 \item \texttt{node index} 
+\vspace{-.3cm}
 \item \texttt{http-server ../client/app}
 \end{enumerate}
 \section{Client}
@@ -91,7 +97,7 @@ The node.js server dependencies are listed in the server/package.json.
 
 server/index.js is the main node server script. It connects to the MongoDB server and performs functions including user authentication and authorisation tasks, communication with the server through API and serving content to the client upon valid request. All server side functionality is added to the server upon start.
 
-Required modules are in the /server/node_modules/ folder. Many of them are dependencies of the modules used on the server. /server/package.json specifies dependencies and information about the application.
+Required modules are in the /server/node\_modules/ folder. Many of them are dependencies of the modules used on the server. /server/package.json specifies dependencies and information about the application.
 
 Express.js is a node framework used to register different API services in the server.
 
@@ -115,9 +121,9 @@ Upon registration the server check whether the provided email address is unique.
 User cannot proceed to use the tool without being logged in and is automatically redirected to the welcome page once their token cannot be validated.
 Some of the authentication infrastructure is similar to the project available at \url{https://github.com/simonholmes/MEAN-stack-authentication/} used to learn how it can be handled. It is however modified quite a bit and it's functionality is extended in our solution.
 
-To register navigate to /#/register or click \"Get Started\" in the homepage and follow instructions on the screen.
+To register navigate to /\#/register or click \"Get Started\" in the homepage and follow instructions on the screen.
 To log in click on the \"Log In\" button in the homepage and enter the credentials as indicated.
-To log out navigate to /#/pictures or click \"Profile\" in the Navigation Bar, then click \"Logout\" button in the right top corner of the screen.
+To log out navigate to /\#/pictures or click \"Profile\" in the Navigation Bar, then click \"Logout\" button in the right top corner of the screen.
 
 \subsection{Database} 
 As mentioned MongoDB is used as our database. We are using it to store 2 models: 
@@ -131,7 +137,7 @@ Access to both tables is controlled by server/controllers/PictureController.js a
 
 Models are specified inside the /server/models folder.
 
-User models can be accessed by clicking on the profile picture in the Friends bar underneath the Navigation Bar at the /#/home url. This shows conversation with the selected user and allows to view the user gallery by clicking the person glyphicon on the right hand of the screen underneath the Friends bar.
+User models can be accessed by clicking on the profile picture in the Friends bar underneath the Navigation Bar at the /\#/home url. This shows conversation with the selected user and allows to view the user gallery by clicking the person glyphicon on the right hand of the screen underneath the Friends bar.
 
 It is also possible to dynamically filter the users displayed by entering part of their email or name in the seatch input box on the upper right side of the screen.
 
@@ -139,28 +145,41 @@ Conversations are produced by accessing the current database of pictures sent be
 
 To add a picture to the database (and send it to the other user) click on \"New Picture\", draw a picture and press the down arrow button on the top right of the overlay. This should rerender the contents of the chat to include the sent message.
 
-It is possible to delete sent pictures by going to the Profile page (/#/pictures) and clicking on the trash can glyphicon on the bottom right side of the picture. This will prompt the user to confirm the decision and make subsequent request through the API to delete it from the database if decision is confirmed.
+It is possible to delete sent pictures by going to the Profile page (/\#/pictures) and clicking on the trash can glyphicon on the bottom right side of the picture. This will prompt the user to confirm the decision and make subsequent request through the API to delete it from the database if decision is confirmed.
 \section{Features We Are Proud Of}
 Authentication method implemented is relatively complex. It allows safe storage of the passwords and allows people to stay logged in between sessions by the use of the token. This accounts for a better user experience.
+
 Implementing this feature and integrating it with the rest of the system took significant amount of time. The implementation allows for easy expansion into different authentication methods, which is a major consideration in the scalability of the application.
+
+In addition, we feel that the overall look and feel of the website is crisp and modern. A monochromatic colour scheme was used, which looks great on the flat design we opted for. Drop shadows were used for emphasis, and to provide subtle visual cues to improve the user experience.
 \section{Things that didn't work}
 Initially an attmpt was made to implement authentication through use of Kerberos, but it proved difficult. Also it uses a 3rd party authentication. Decision to use passport.js was made and Kerberos authentication was scrapped.
 
-Initially we used Grunt to automate javascript task. It was useful for development, but scrapped due to problems with the portability of the code.
+We initially used Grunt to automate javascript task. It was useful for development, but scrapped due to problems with the portability of the code.
+
+The original design of the website was also quite different, featuring a slide out friends list on the right-hand side of the page. This caused some issues when resizing the browser window while viewing the website, and in the end was removed completely in favour of the horizontal list used in this version of the website. The main page layout was also very different, and it was decided that it looked too old, or perhaps classical, to suit the theme of Pikchat. It was scrapped in favour of the current design, which we feel is minimal enough to not distract from the user experience, while still providing an aesthetically pleasing and functional layout.
 \section{Future Development}
 Had more time been available, we would have liked to implement/improve the following features:
 \begin{itemize}
+\vspace{-.3cm}
 \item More advanced user profiles with customisation options such as custom profile pictures.
+\vspace{-.3cm}
 \item Adding users as friends, instead of everyone being friends with everyone else.
+\vspace{-.3cm}
 \item Group conversations, involving more than two participants.
+\vspace{-.3cm}
 \item Custom drawing control, such that the Sketch.js dependency is no longer required and so that we have more control over the element.
+\vspace{-.3cm}
 \item Provide better information when something goes wrong e.g. logging in failed, registration failed, etc.
+\vspace{-.3cm}
 \item Using other authentication methods such as Oauth to allow easier access for the users.
+\vspace{-.3cm}
 \item Enforcing stricter registration rules, with minimum password length and email confirmation to prevent botting.
 \end{itemize}
+\vspace{-.75cm}
 \section{Images}
-Should the server prove to be too much hassle to set up, below are some images to show what the website is meant to look like when it is up and running. 
-\begin{figure}[h]
+Should the server prove to be too much hassle to set up, some images in \cref{figure:webpics} show what the website is meant to look like when it is up and running.
+\begin{figure}[!htb]
 \begin{subfigure}[b]{0.5\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth]{report-img/splash.png}
@@ -186,5 +205,6 @@ Should the server prove to be too much hassle to set up, below are some images t
 \vspace{4ex}
 \end{subfigure}
 \caption{Images showing the website's different pages in action.}
+\label{figure:webpics}
 \end{figure}
 \end{document}
