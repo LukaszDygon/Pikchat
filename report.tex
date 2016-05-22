@@ -31,7 +31,7 @@ To run everything it should be sufficient to execute the following from the /ser
 \item \texttt{http-server ../client/app}
 \end{enumerate}
 \section{Client}
-The client component of the website uses Bootstrap 3 to provide an underlying framework to allow for fully responsive page layouts. Pages are served using an Angular.js server, which is described in depth in the server section of this report. For the client side, all code was written using the new open source editor by Microsoft, Visual Studio Code (\url{https://github.com/Microsoft/vscode}), which, among other features, provides contextual code completion suggestions aiding in development.For the drawing of input images, the Sketch.js (\url{http://intridea.github.io/sketch.js/}) library was used. This was modified to work on mobile devices, although testing on such devices has been limited.
+The client component of the website uses Bootstrap 3 to provide an underlying framework to allow for fully responsive page layouts. Pages are served using an Angular.js server, which is described in depth in the server section of this report. For the client side, all code was written using the new open source editor by Microsoft, Visual Studio Code (\url{https://github.com/Microsoft/vscode}), which, among other features, provides contextual code completion suggestions aiding in development.For the drawing of input images, the Sketch.js (\url{http://intridea.github.io/sketch.js/}) library was used. This was modified to expand functionality for our needs (clearing the canvas) and to work on mobile devices, although testing on such devices has been limited.
 
 The client should display properly on most modern browsers. Those tested include the latest versions of Chrome, Internet Explorer, Edge, Firefox, and Safari, as well as using the emulated mobile browsers available using the Chrome development tools. We were aiming to support the latest browsers and fail gracefully on slightly older models, which we feel has been achieved, but results on browsers that are significantly older may vary and have not been tested. Standards compliance has been tested, but it is worth noting that due to Angular.js, there are some element attributes that are not considered to be part of the standard. However, without them the backend would not be able to function correctly and as such they have been left in. This does not appear to cause any issues with displaying the web page on any of the browsers used for testing. Aside from this point, the website should be fully standards compliant.
 \subsection{HTML}
@@ -90,6 +90,22 @@ For development we have used the MEAN stack: MongoDB, Express.js, Angular.js and
 The node.js server dependencies are listed in the server/package.json.
 
 server/index.js is the main node server script. It connects to the MongoDB server and performs functions including user authentication and authorisation tasks, communication with the server through API and serving content to the client upon valid request. All server side functionality is added to the server upon start.
+
+Required modules are in the /server/node_modules/ folder. Many of them are dependencies of the modules used on the server. /server/package.json specifies dependencies and information about the application.
+
+Express.js is a node framework used to register different API services in the server.
+
+MongoDB was chosen because it has syntax similar to the SQL syntax and allows to change the models quite freely throughout development without breaking the functionality (for example adding and removing columns). It seems to be increasingly used in the technology industry due to its flexibility.
+
+\subsection{Angular.js}
+Angular.js is a framework used for creating single page web applications. It achieves it by serving different view and controller at each URL without reloading elements which are kept between each URL (in our case it’s Navbar).
+
+Routing is specified in the /client/app/scripts/app.js. This script also enforces checking of user credentials upon requesting URL access.
+
+The views are defined in the /client/app/views and controllers are defined in the /client/app/scripts/controllers folder.
+
+Restangular is a Rest API service for Angular.js which is used to process http requests to the server and handling responses to create dynamic elements. It is used in our project to receive relevant database elements to be rendered dynamically in the browser. An example  is the messages sent and received by the user from the person they are communicating with. Content of the response is negotiated with the server by making an API call and then using the response to generate the elements in the appropriate view by Angular.js.
+
 \subsection{Authentication and Authorisation}
 Passport.js is used for Authentication on the server side. The authentication strategy is set up in the server/passport.js. On the client side the user can register and login.
 
@@ -98,6 +114,11 @@ Angular controllers use authentication service (/client/app/authentication.js) w
 Upon registration the server check whether the provided email address is unique. If successful it encrypts the password and saves it in the database. The relevant file is /server/controllers/UserController.js. This also handles login request and issues session token. Token is issued by the server upon successful login and is valid for a day (this value can be easily adjusted).
 User cannot proceed to use the tool without being logged in and is automatically redirected to the welcome page once their token cannot be validated.
 Some of the authentication infrastructure is similar to the project available at \url{https://github.com/simonholmes/MEAN-stack-authentication/} used to learn how it can be handled. It is however modified quite a bit and it's functionality is extended in our solution.
+
+To register navigate to /#/register or click \"Get Started\" in the homepage and follow instructions on the screen.
+To log in click on the \"Log In\" button in the homepage and enter the credentials as indicated.
+To log out navigate to /#/pictures or click \"Profile\" in the Navigation Bar, then click \"Logout\" button in the right top corner of the screen.
+
 \subsection{Database} 
 As mentioned MongoDB is used as our database. We are using it to store 2 models: 
 \begin{itemize}
@@ -109,14 +130,23 @@ Client side can communicate with the server side through registered api, allowin
 Access to both tables is controlled by server/controllers/PictureController.js and server/controller/UserController.js.
 
 Models are specified inside the /server/models folder.
-\subsection{Angular.js}
-Angular.js is a framework used for creating single page web applications. It achieves it by serving different view and controller at each URL without reloading elements which are kept between each URL (in our case it’s Navbar).
 
-Routing is specified in the /client/app/scripts/app.js. This script also enforces checking of user credentials upon requesting URL access.
+User models can be accessed by clicking on the profile picture in the Friends bar underneath the Navigation Bar at the /#/home url. This shows conversation with the selected user and allows to view the user gallery by clicking the person glyphicon on the right hand of the screen underneath the Friends bar.
 
-The views are defined in the /client/app/views and controllers are defined in the /client/app/scripts/controllers folder.
+It is also possible to dynamically filter the users displayed by entering part of their email or name in the seatch input box on the upper right side of the screen.
 
-Restangular is a Rest API service for Angular.js which is used to process http requests to the server and handling responses to create dynamic elements. It is used in our project to receive relevant database elements to be rendered dynamically in the browser. An example  is the messages sent and received by the user from the person they are communicating with. Content of the response is negotiated with the server by making an API call and then using the response to generate the elements in the appropriate view by Angular.js.
+Conversations are produced by accessing the current database of pictures sent between the current user and the user selected in the Friends bar.
+
+To add a picture to the database (and send it to the other user) click on \"New Picture\", draw a picture and press the down arrow button on the top right of the overlay. This should rerender the contents of the chat to include the sent message.
+
+It is possible to delete sent pictures by going to the Profile page (/#/pictures) and clicking on the trash can glyphicon on the bottom right side of the picture. This will prompt the user to confirm the decision and make subsequent request through the API to delete it from the database if decision is confirmed.
+\section{Features We Are Proud Of}
+Authentication method implemented is relatively complex. It allows safe storage of the passwords and allows people to stay logged in between sessions by the use of the token. This accounts for a better user experience.
+Implementing this feature and integrating it with the rest of the system took significant amount of time. The implementation allows for easy expansion into different authentication methods, which is a major consideration in the scalability of the application.
+\section{Things that didn't work}
+Initially an attmpt was made to implement authentication through use of Kerberos, but it proved difficult. Also it uses a 3rd party authentication. Decision to use passport.js was made and Kerberos authentication was scrapped.
+
+Initially we used Grunt to automate javascript task. It was useful for development, but scrapped due to problems with the portability of the code.
 \section{Future Development}
 Had more time been available, we would have liked to implement/improve the following features:
 \begin{itemize}
@@ -125,6 +155,8 @@ Had more time been available, we would have liked to implement/improve the follo
 \item Group conversations, involving more than two participants.
 \item Custom drawing control, such that the Sketch.js dependency is no longer required and so that we have more control over the element.
 \item Provide better information when something goes wrong e.g. logging in failed, registration failed, etc.
+\item Using other authentication methods such as Oauth to allow easier access for the users.
+\item Enforcing stricter registration rules, with minimum password length and email confirmation to prevent botting.
 \end{itemize}
 \section{Images}
 Should the server prove to be too much hassle to set up, below are some images to show what the website is meant to look like when it is up and running. 
