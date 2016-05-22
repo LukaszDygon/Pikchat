@@ -11,14 +11,15 @@
 
 <div id="content-wrap">
 	<div id="profile-information" class="container">
-		<h2>{{currentUser.name}}'s Sent Images</h2>
-		<a ng-href="/#/" ng-click="logout()">Logout</a>
+		<h2 class="pull-left">{{currentUser.name}}'s Sent Images</h2>
+		<a ng-href="/#/" ng-click="logout()" class="pull-right btn btn-default">Logout</a>
+		<div class="clearfix"></div>
 	</div>
 	<div id="picture-list-container" class="container">
 		<div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="picture in pictures">
 			<div class="picture-list-item panel panel-default">
 				<div class="panel-body">
-					<img class="img-responsive img-rounded" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}" />
+					<img class="img-responsive img-rounded" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}" alt="Sent Image" />
 					<a ng-href="/#/picture/{{ picture._id }}/delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
 				</div>
 			</div>

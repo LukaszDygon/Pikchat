@@ -55,7 +55,7 @@
                     <ul class="pull-left col-xs-8">
                         <li ng-repeat="user in users | filter: nameFilter">
                             <a href="#" ng-click="getPictures(user)">
-                            <img class="img-circle" src="images/png/defaultprofile.png" /></a>
+                            <img class="img-circle" src="images/png/defaultprofile.png" alt="Profile Picture" /></a>
                         </li>
                     </ul>
                     <div class="input-group col-xs-4 pull-right">
@@ -71,7 +71,7 @@
                 <!-- Chat -->
                 <div id="chat">
                     <div id="chat-header">
-                        <img id="chat-arrow" src="images/png/chat-arrow.png" />
+                        <img id="chat-arrow" src="images/png/chat-arrow.png" alt="Indicator" />
                         <h2> {{receiver.name}} <span class="small">Offline</span></h2>
                         <div id="chat-header-buttons" class="btn-group">
                             <button id="btn-goto-chat" type="button" class="btn btn-default disabled">
@@ -87,9 +87,9 @@
                         <p><a href="#" id="chat-new-picture">New Picture</a></p>
                         
                         <div class="chat-item" ng-repeat="picture in senderPictures.concat(receiverPictures) | orderBy : '_id' : true">
-                            <img ng-class="picture.receiver != currentUser.email ? 'img-circle right' : 'img-circle left'" src="images/png/defaultprofile.png">
+                            <img ng-class="picture.receiver != currentUser.email ? 'img-circle right' : 'img-circle left'" src="images/png/defaultprofile.png" alt="Profile Picture" />
                             <a href="#">
-                                <img ng-class="picture.receiver != currentUser.email ? 'img-rounded pull-right' : 'img-rounded pull-left'" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}">
+                                <img ng-class="picture.receiver != currentUser.email ? 'img-rounded pull-right' : 'img-rounded pull-left'" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}" alt="Sent Image" />
                             </a>
                             <div class="clearfix"></div>
                         </div>
@@ -100,7 +100,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="picture in pictures">
                                 <div class="picture-list-item panel panel-default">
                                     <div class="panel-body">
-                                        <img class="img-responsive img-rounded" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}" />
+                                        <img class="img-responsive img-rounded" ng-href="/#/picture/{{ picture._id }}" ng-src="{{picture.img}}" alt="Sent Image" />
                                     </div>
                                 </div>
                             </div>

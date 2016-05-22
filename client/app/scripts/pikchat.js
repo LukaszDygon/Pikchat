@@ -1,5 +1,7 @@
 //@ sourceURL = scripts/pikchat.js
 
+"use strict";
+
 $(function() {
     var btns = $("#chat-header-buttons button");
     var chat = $("#chat-body");
