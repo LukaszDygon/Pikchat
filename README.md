@@ -8,4 +8,4 @@ Go to /server/ and run
 
 Tu run front end:
 Go to /client/ and run
-* grunt serve
+* http-server app
